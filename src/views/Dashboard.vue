@@ -67,16 +67,8 @@
              <v-form class="px-3" ref="form">
           <v-text-field solo v-model="title" label="Username" prepend-icon="person" :rules="inputRules"></v-text-field>
           <v-spacer></v-spacer>
-         
-          <v-text-field autocomplete="current-password"
-            :value="userPassword"
-            label="Enter password"
-            hint="Your password passed! Password rules are not meant to be broken!"
-            :append-icon="value ? 'mdi-eye' : 'mdi-eye-off'"
-            @click:append="() => (value = !value)"
-            :type="value ? 'password' : 'text'"
-            :rules="[rules.password]"
-            @input="_=>userPassword=_"></v-text-field>
+         <v-text-field solo v-model="title" label="Username" prepend-icon="person" :rules="inputRules"></v-text-field>
+        
           <v-checkbox v-model="checkbox" label="Remember Me"></v-checkbox>
           <v-spacer></v-spacer>
           <v-spacer></v-spacer>
@@ -112,22 +104,7 @@ export default {
         v => !!v || 'This field is required',
         v => v.length >= 3 || 'Minimum length is 3 characters'
       ],
-       userPassword: "",
-      valid: true,
-      value: true,
-      rules: {
-        required: value => !!value || "Required.",
-        password: value => {
-          const pattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})/;
-          return (
-            pattern.test(value) ||
-            "Min. 8 characters with at least one capital letter, a number and a special character."
-          );
-        }
-      },
-      loading: false,
-      dialog: false
-    }
+  }
   }
 }
 
