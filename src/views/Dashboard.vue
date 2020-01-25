@@ -67,7 +67,7 @@
              <v-form class="px-3" ref="form">
           <v-text-field solo v-model="title" label="Username" prepend-icon="person" :rules="inputRules"></v-text-field>
           <v-spacer></v-spacer>
-         <v-text-field solo v-model="title" label="Username" prepend-icon="person" :rules="inputRules"></v-text-field>
+         <v-text-field solo v-model="title" label="Password" prepend-icon="person" :rules="inputRules1"></v-text-field>
         
           <v-checkbox v-model="checkbox" label="Remember Me"></v-checkbox>
           <v-spacer></v-spacer>
@@ -101,6 +101,10 @@ export default {
       due: null,
       menu: false,
       inputRules: [
+        v => !!v || 'This field is required',
+        v => v.length >= 3 || 'Minimum length is 3 characters'
+      ],
+      inputRules1: [
         v => !!v || 'This field is required',
         v => v.length >= 3 || 'Minimum length is 3 characters'
       ],
